@@ -1,6 +1,7 @@
 // import TabIcon from './TabIcon';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomTabBar } from '@react-navigation/bottom-tabs';
+import Octicons from 'react-native-vector-icons/Octicons'
 import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, View } from 'react-native';
 import { Image } from "react-native";
@@ -53,11 +54,11 @@ import Reward from '../../pages/Reward';
           // position: 'absolute',
           style: {
             // position: 'absolute',
-            bottom: 0, 
-            borderTopLeftRadius: 40,
-            borderTopRightRadius: 40,
+            // bottom: 0, 
+            // borderTopLeftRadius: 40,
+            // borderTopRightRadius: 40,
             // padding: 10,
-            ...style.shadow,
+            // ...style.shadow,
           },          
           tabStyle: {
             backgroundColor:"rgb(45,45,45)"
@@ -125,10 +126,11 @@ import Reward from '../../pages/Reward';
           options={{
             // tabBarIcon: ({ color }) => <TabIcon name="profile"/>
             tabBarIcon: ({ color, size }) => (
-              <Image
-              source = {require('../../assets/icons/tab-profile.png')}
-                style = {{ width: 30, height: 30, tintColor: color}}
-              />
+              <Octicons name='home' size ={30} />
+              // <Image
+              // source = {require('../../assets/icons/tab-profile.png')}
+              //   style = {{ width: 30, height: 30, tintColor: color}}
+              // />
             )
           }}
         />
