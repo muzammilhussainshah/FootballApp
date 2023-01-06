@@ -1,9 +1,8 @@
 // @app
 import React from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
-import Feather from 'react-native-vector-icons/Feather'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import SCColors from '../styles/SCColors';
