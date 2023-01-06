@@ -14,6 +14,7 @@ import Octicons from 'react-native-vector-icons/Octicons'
 
 import { styles } from './styles'
 import SCColors from '../styles/SCColors';
+import moment from 'moment';
 
 const TrendingNewsCard = ({ item, newDatalength }) => {
   console.log(item, 'itemitemitemitem', newDatalength)
@@ -23,15 +24,17 @@ const TrendingNewsCard = ({ item, newDatalength }) => {
         <Image source={{ uri: item?.item?.profilePhoto }} style={styles.trendNewsProfile} />
       </View>
       <View style={styles.trendNewsBody}>
-        <View style={{ width: '100%', backgroundColor: 'red' }}>
+        <View style={{ width: '100%',  }}>
           <Text style={styles.carouselFooterText}>{item.item.title}</Text>
         </View>
         <View style={{ width: '100%', flexDirection: 'row', alignItems: "center" }}>
           <AntDesign name='hearto' size={RFPercentage(2)} color={SCColors.tabInactive} />
-          <Text style={[styles.VSText, { marginLeft: RFPercentage(1) }]}>{item.item.likes}</Text>
+          <Text style={[styles.VSText, styles.trendNewsFooterText2]}>{item.item.likes}</Text>
           <Octicons name='comment' size={RFPercentage(2)} style={styles.trendNewsFooterText} color={SCColors.tabInactive} />
-          <Text style={[styles.VSText, { marginLeft: RFPercentage(1) }]}>{item.item.comments}</Text>
-          <Text style={[styles.VSText, styles.trendNewsFooterText]}>{item.item.timeStamp.toLocaleDateString("en-US",)}</Text>
+          <Text style={[styles.VSText, styles.trendNewsFooterText2]}>{item.item.comments}</Text>
+          <Text style={[styles.VSText, styles.trendNewsFooterText]}>{
+            moment(item.item.timeStamp).calendar()
+          }</Text>
 
         </View>
 

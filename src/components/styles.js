@@ -149,7 +149,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     // width:RFPercentage(15),
     margin: 1,
-    backgroundColor: 'red',
+    backgroundColor: SCColors.ScoreCart,
     borderBottomLeftRadius: bottomCurve ? RFPercentage(2) : 0,
     borderBottomRightRadius: bottomCurve ? RFPercentage(2) : 0,
     borderTopRightRadius: topCurve ? RFPercentage(2) : 0,
@@ -159,11 +159,14 @@ export const styles = StyleSheet.create({
 
   }),
   trendNewsProfileContainer: {
-    height: "100%", width: '23%', backgroundColor: 'blue', justifyContent: 'center', alignItems: "center",
+    height: "100%", width: '23%',  justifyContent: 'center', alignItems: "center",
   },
   trendNewsBody: {
-    height: "100%", width: '77%', backgroundColor: 'green', justifyContent: 'space-evenly', alignItems: "center", paddingHorizontal: RFPercentage(2)
+    height: "100%", width: '77%',  justifyContent: 'space-evenly', alignItems: "center", paddingHorizontal: RFPercentage(2)
   },
   trendNewsProfile: { height: '85%', width: '85%', borderRadius: RFPercentage(2) },
-  trendNewsFooterText: { marginLeft: RFPercentage(2), color: SCColors.tabInactive }
+  trendNewsFooterText: { marginLeft: RFPercentage(2), color: SCColors.tabInactive },
+  trendNewsFooterText2: {
+    marginLeft: RFPercentage(1), color: SCColors.tabInactive
+  }
 });
