@@ -10,7 +10,6 @@ const SCColors = {
     ScoreCart: "#353535",
     tabActive: "#e7e7e7",
     red: "red",
-
 }
 
 export default SCColors

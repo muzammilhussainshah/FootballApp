@@ -1,9 +1,13 @@
 // @app
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import {
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
 
-import { styles } from './styles'
 // @components
+import { styles } from './styles'
 
 const TitleBar = ({ title, seeAllEnable }) => {
   return (
@@ -14,7 +18,6 @@ const TitleBar = ({ title, seeAllEnable }) => {
           <Text style={styles.TitleBarBtn}>{`See All`}</Text>
         </TouchableOpacity>
       }
-
     </View>
   );
 };

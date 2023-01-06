@@ -10,7 +10,7 @@ import SCColors from '../styles/SCColors';
 import { styles } from './styles'
 // @components
 
-const Header = ({ navigation }) => {
+const Header = () => {
   return (
     <View style={[styles.headerContainer]}>
       <View style={styles.headerHeading}>
