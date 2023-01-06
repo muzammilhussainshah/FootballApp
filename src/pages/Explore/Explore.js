@@ -10,8 +10,40 @@ import SCColors from '../../styles/SCColors';
 import { styles } from './styles';
 import CustomCarousel from '../../components/CustomCarousel';
 import TitleBar from '../../components/TitleBar';
+import TrendingNewsCard from '../../components/TrendingNewsCard';
 
 const EXPLORECATEGORY = ['All', 'Preview', 'Highlight', 'News Update', 'Standings']
+const NEWSDATA = [{
+  title: "Real Madrid Are Still Confident In Signing Mbappe This Summer",
+  likes: 8,
+  comments: 9,
+  profilePhoto: "https://i.picsum.photos/id/524/700/500.jpg?hmac=PuAKCqRNlpa6_UJLeKABjXH9l3MFgsv-LHMm0bDfey4",
+  timeStamp: new Date()
+}, {
+  title: "Real Madrid Are Still Confident In Signing Mbappe This Summer",
+  likes: 8,
+  comments: 9,
+  profilePhoto: "https://i.picsum.photos/id/524/700/500.jpg?hmac=PuAKCqRNlpa6_UJLeKABjXH9l3MFgsv-LHMm0bDfey4",
+  timeStamp: new Date()
+}, {
+  title: "Real Madrid Are Still Confident In Signing Mbappe This Summer",
+  likes: 8,
+  comments: 9,
+  profilePhoto: "https://i.picsum.photos/id/524/700/500.jpg?hmac=PuAKCqRNlpa6_UJLeKABjXH9l3MFgsv-LHMm0bDfey4",
+  timeStamp: new Date()
+}, {
+  title: "Real Madrid Are Still Confident In Signing Mbappe This Summer",
+  likes: 8,
+  comments: 9,
+  profilePhoto: "https://i.picsum.photos/id/524/700/500.jpg?hmac=PuAKCqRNlpa6_UJLeKABjXH9l3MFgsv-LHMm0bDfey4",
+  timeStamp: new Date()
+}, {
+  title: "Real Madrid Are Still Confident In Signing Mbappe This Summer",
+  likes: 8,
+  comments: 9,
+  profilePhoto: "https://i.picsum.photos/id/524/700/500.jpg?hmac=PuAKCqRNlpa6_UJLeKABjXH9l3MFgsv-LHMm0bDfey4",
+  timeStamp: new Date()
+}]
 const Explore = ({ navigation }) => {
   const [activeCategory, setActiveCategory] = useState('All')
 
@@ -45,8 +77,10 @@ const Explore = ({ navigation }) => {
       <View style={[styles.container,]}>
         <ScrollView >
           {/* BANNERS */}
-          <View style={{ height: RFPercentage(29) }}>
-            <MatchPreviewCarousel footer={true} />
+          <View style={{ height: RFPercentage(29), marginVertical: RFPercentage(1), marginBottom: RFPercentage(2) }}>
+            <MatchPreviewCarousel
+              footer={true}
+              footerText={`Player, Manager & Goal of the Month Premier League Awards?`} />
           </View>
           {/* BANNERS */}
 
@@ -60,6 +94,17 @@ const Explore = ({ navigation }) => {
             <MatchPreviewCarousel />
           </View>
           {/* MATCH HIGHLIGHT */}
+          {/* TRENDING NEWS */}
+          <TitleBar title={`Trending News`} seeAllEnable={true} />
+          <FlatList
+            data={NEWSDATA}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{   padding: RFPercentage(2) }}
+            renderItem={(props  ) => <TrendingNewsCard newDatalength={NEWSDATA.length} item={props} />}
+            keyExtractor={item => item.id}
+          />
+          {/* TRENDING NEWS */}
+
         </ScrollView>
       </View>
     </>
@@ -67,14 +112,14 @@ const Explore = ({ navigation }) => {
 };
 
 
-const MatchPreviewCarousel = ({footer}) => {
+const MatchPreviewCarousel = ({ footer, footerText }) => {
   return (
     <FlatList
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{ paddingHorizontal: RFPercentage(2), }}
       data={DUMMYBANNERS}
-      renderItem={(item) => <CustomCarousel footer={footer==true?true:false} item={item} />}
+      renderItem={(item) => <CustomCarousel footer={footer == true ? true : false} footerText={footerText} item={item} />}
       keyExtractor={item => item.id}
     />
   )

@@ -125,15 +125,45 @@ export const styles = StyleSheet.create({
   subCrousalBaner: footer => ({
     height: footer ? RFPercentage(21) : RFPercentage(23),
     borderRadius: RFPercentage(2),
-    borderBottomRightRadius: footer ? 0 :RFPercentage(2),borderBottomLeftRadius: footer ? 0 :RFPercentage(2)
+    borderBottomRightRadius: footer ? 0 : RFPercentage(2), borderBottomLeftRadius: footer ? 0 : RFPercentage(2)
   }),
   carouselContainer: footer => ({
-    
+
     borderRadius: RFPercentage(2),
-    borderBottomRightRadius: footer ? 0 :RFPercentage(2),borderBottomLeftRadius: footer ? 0 :RFPercentage(2),
+    borderBottomRightRadius: footer ? 0 : RFPercentage(2), borderBottomLeftRadius: footer ? 0 : RFPercentage(2),
     height: footer ? RFPercentage(29) : RFPercentage(22),
     width: flexW1 * 6.5,
     marginRight: flexW1 * 0.3,
     marginVertical: RFPercentage(1)
-  })
+  }),
+  carouselFooterContainer: {
+    height: RFPercentage(7), backgroundColor: SCColors.ScoreCart, borderBottomRightRadius: RFPercentage(2), borderBottomLeftRadius: RFPercentage(2), width: "100%", justifyContent: "center", alignItems: 'center'
+  },
+  carouselFooterText: {
+    color: SCColors.white,
+    width: '90%',
+    fontSize: RFPercentage(1.8)
+  },
+  newsCartContainer: (topCurve, bottomCurve) => ({
+    height: RFPercentage(12),
+    width: '100%',
+    // width:RFPercentage(15),
+    margin: 1,
+    backgroundColor: 'red',
+    borderBottomLeftRadius: bottomCurve ? RFPercentage(2) : 0,
+    borderBottomRightRadius: bottomCurve ? RFPercentage(2) : 0,
+    borderTopRightRadius: topCurve ? RFPercentage(2) : 0,
+    borderTopLeftRadius: topCurve ? RFPercentage(2) : 0,
+    overflow: 'hidden',
+    flexDirection: 'row', justifyContent: 'center', alignItems: "center",
+
+  }),
+  trendNewsProfileContainer: {
+    height: "100%", width: '23%', backgroundColor: 'blue', justifyContent: 'center', alignItems: "center",
+  },
+  trendNewsBody: {
+    height: "100%", width: '77%', backgroundColor: 'green', justifyContent: 'space-evenly', alignItems: "center", paddingHorizontal: RFPercentage(2)
+  },
+  trendNewsProfile: { height: '85%', width: '85%', borderRadius: RFPercentage(2) },
+  trendNewsFooterText: { marginLeft: RFPercentage(2), color: SCColors.tabInactive }
 });
