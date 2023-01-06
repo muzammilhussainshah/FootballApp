@@ -67,7 +67,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: RFPercentage(1)
+    paddingHorizontal: RFPercentage(2)
   },
   ScoreTeamLogoContainer: {
     flex: 2.5,
