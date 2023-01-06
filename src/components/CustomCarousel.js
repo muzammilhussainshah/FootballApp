@@ -1,14 +1,15 @@
 // @app
 import React from 'react';
-import { Image, Text, View } from 'react-native';
-import { RFPercentage } from 'react-native-responsive-fontsize';
-import SCColors from '../styles/SCColors';
+import {
+  Image,
+  Text,
+  View
+} from 'react-native';
 
 // @components
 import { styles } from './styles'
 
 const CustomCarousel = ({ item, footer, footerText }) => {
-  console.log(item, 'footerfooter', footer, footerText)
   return (
     <>
       <View style={styles.carouselContainer(footer ? true : false)}>

@@ -17,14 +17,5 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: 'center',
   }),
-
-
-  caregoryBtnText: activeCategory => ({
-    color: activeCategory ? SCColors.black : SCColors.tabInactive
-    // flexDirection: 'row',
-    // justifyContent: 'space-between',
-    // alignItems: 'flex-end',
-    // paddingBottom: noFooter ? 0 : 20,
-    // paddingTop: Metrics.ratio(noFooter ? 0 : 5),
-  }),
+  caregoryBtnText: activeCategory => ({ color: activeCategory ? SCColors.black : SCColors.tabInactive }),
 });

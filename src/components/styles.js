@@ -137,7 +137,13 @@ export const styles = StyleSheet.create({
     marginVertical: RFPercentage(1)
   }),
   carouselFooterContainer: {
-    height: RFPercentage(7), backgroundColor: SCColors.ScoreCart, borderBottomRightRadius: RFPercentage(2), borderBottomLeftRadius: RFPercentage(2), width: "100%", justifyContent: "center", alignItems: 'center'
+    height: RFPercentage(7),
+    backgroundColor: SCColors.ScoreCart,
+    borderBottomRightRadius: RFPercentage(2),
+    borderBottomLeftRadius: RFPercentage(2),
+    width: "100%",
+    justifyContent: "center",
+    alignItems: 'center'
   },
   carouselFooterText: {
     color: SCColors.white,
@@ -147,7 +153,6 @@ export const styles = StyleSheet.create({
   newsCartContainer: (topCurve, bottomCurve) => ({
     height: RFPercentage(12),
     width: '100%',
-    // width:RFPercentage(15),
     margin: 1,
     backgroundColor: SCColors.ScoreCart,
     borderBottomLeftRadius: bottomCurve ? RFPercentage(2) : 0,
@@ -155,18 +160,40 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: topCurve ? RFPercentage(2) : 0,
     borderTopLeftRadius: topCurve ? RFPercentage(2) : 0,
     overflow: 'hidden',
-    flexDirection: 'row', justifyContent: 'center', alignItems: "center",
-
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: "center",
   }),
   trendNewsProfileContainer: {
-    height: "100%", width: '23%',  justifyContent: 'center', alignItems: "center",
+    height: "100%",
+    width: '23%',
+    justifyContent: 'center',
+    alignItems: "center",
+
   },
   trendNewsBody: {
-    height: "100%", width: '77%',  justifyContent: 'space-evenly', alignItems: "center", paddingHorizontal: RFPercentage(2)
+    height: "100%",
+    width: '77%',
+    justifyContent: 'space-evenly',
+    alignItems: "center",
+    paddingHorizontal: RFPercentage(2)
   },
-  trendNewsProfile: { height: '85%', width: '85%', borderRadius: RFPercentage(2) },
-  trendNewsFooterText: { marginLeft: RFPercentage(2), color: SCColors.tabInactive },
+  trendNewsProfile: {
+    height: '85%',
+    width: '85%',
+    borderRadius: RFPercentage(2)
+  },
+  trendNewsFooterText: {
+    marginLeft: RFPercentage(2),
+    color: SCColors.tabInactive
+  },
   trendNewsFooterText2: {
-    marginLeft: RFPercentage(1), color: SCColors.tabInactive
+    marginLeft: RFPercentage(1),
+    color: SCColors.tabInactive
+  },
+  TrendingNewsCardFooterContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: "center"
   }
 });
