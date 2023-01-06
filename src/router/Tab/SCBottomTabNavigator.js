@@ -9,11 +9,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
 import SCColors from '../../styles/SCColors';
-import Home from '../../pages/Home';
-import Live from '../../pages/Live';
-import Explore from '../../pages/Explore';
-import Profile from '../../pages/Profile';
-import Reward from '../../pages/Reward';
+import Home from '../../pages/Home/Home';
+import Live from '../../pages/Live/Live';
+import Explore from '../../pages/Explore/Explore';
+import Profile from '../../pages/Profile/Profile';
+import Reward from '../../pages/Reward/Reward';
 
 const BottomTab = createBottomTabNavigator();
 

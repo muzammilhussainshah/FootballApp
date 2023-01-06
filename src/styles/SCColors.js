@@ -1,5 +1,6 @@
 const SCColors = {
     white: "#ffffff",
+    primary:"rgb(45,45,45)",
     main: "#0352F7",
     profileTab: '#ECF0F7',
     gradientRight: "#0373FB",
