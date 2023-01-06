@@ -3,6 +3,10 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 import SCColors from '../../styles/SCColors';
 
 export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: SCColors.primary
+  },
   caregoryBtnContainer: activeCategory => ({
     height: RFPercentage(5),
     marginVertical: RFPercentage(.5),
