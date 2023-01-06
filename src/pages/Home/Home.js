@@ -28,7 +28,7 @@ const Home = ({ navigation }) => {
 
 
   const renderImage = ({ item }) => (
-    <View style={{ backgroundColor: "red", borderRadius: RFPercentage(3), height: RFPercentage(22), width: flexW1 * 6.5, marginRight: flexW1 * 0.2, marginVertical: RFPercentage(1) }}>
+    <View style={{ backgroundColor: "red", borderRadius: RFPercentage(2), height: RFPercentage(22), width: flexW1 * 6.5, marginRight: flexW1 * 0.3, marginVertical: RFPercentage(1) }}>
       <Image source={{ uri: item }} style={styles.subCrousalBaner} />
     </View>
   );
@@ -77,7 +77,7 @@ const Home = ({ navigation }) => {
               team2Name={`Liverpool`}
               matchDuration={`83 mins`}
               team1Score={`0`}
-              team2Score={2} /> 
+              team2Score={2} />
             <ScoreCard
               isLive={true}
               team1Logo={<Ionicons name='logo-firefox' color="white" size={RFPercentage(4)} />}
@@ -86,9 +86,32 @@ const Home = ({ navigation }) => {
               team2Name={`Liverpool`}
               matchDuration={`83 mins`}
               team1Score={`0`}
-              team2Score={2} /> 
+              team2Score={2} />
           </View>
           {/* LIVE SCORES */}
+          {/* MATCH HIGHLIGHT */}
+           <TitleBar title={`Match Highlight`} seeAllEnable={true} />
+          <View style={{ height: RFPercentage(26) }}>
+            <FlatList
+              horizontal
+              contentContainerStyle={{ paddingHorizontal: RFPercentage(2), }}
+              data={DATA}
+              renderItem={renderImage}
+              keyExtractor={item => item.id}
+            />
+          </View>
+          {/* MATCH HIGHLIGHT */}
+          {/* MATCH PREVIEW */}
+           <TitleBar title={`Match Preview`} seeAllEnable={true} />
+          <View style={{ height: RFPercentage(26) }}>
+            <FlatList
+              horizontal
+              contentContainerStyle={{ paddingHorizontal: RFPercentage(2), }}
+              data={DATA}
+              renderItem={renderImage}
+              keyExtractor={item => item.id}
+            />
+          </View>
 
 
 

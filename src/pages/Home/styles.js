@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   },
   subCrousalBaner: {
     height: RFPercentage(23),
-    borderRadius: RFPercentage(3),
+    borderRadius: RFPercentage(2),
   },
   crousalBaner: {
     height: RFPercentage(28),
