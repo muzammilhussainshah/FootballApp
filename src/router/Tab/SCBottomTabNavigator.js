@@ -2,6 +2,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomTabBar } from '@react-navigation/bottom-tabs';
 import Octicons from 'react-native-vector-icons/Octicons'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import Entypo from 'react-native-vector-icons/Entypo'
 import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, View } from 'react-native';
 import { Image } from "react-native";
@@ -27,6 +30,7 @@ import Live from '../../pages/Live';
 import Explore from '../../pages/Explore';
 import Profile from '../../pages/Profile'; 
 import Reward from '../../pages/Reward'; 
+import { RFPercentage } from 'react-native-responsive-fontsize';
 
   const BottomTab = createBottomTabNavigator();
 
@@ -59,9 +63,12 @@ import Reward from '../../pages/Reward';
             // borderTopRightRadius: 40,
             // padding: 10,
             // ...style.shadow,
+            backgroundColor:"red",
+
           },          
           tabStyle: {
-            backgroundColor:"rgb(45,45,45)"
+            backgroundColor:"rgb(45,45,45)",
+            paddingVertical:RFPercentage(0.5)
             // height: 107,
             // paddingVertical: 40,
             // paddingTop: 15,
@@ -126,7 +133,7 @@ import Reward from '../../pages/Reward';
           options={{
             // tabBarIcon: ({ color }) => <TabIcon name="profile"/>
             tabBarIcon: ({ color, size }) => (
-              <Octicons name='home' size ={30} />
+              <Octicons name='home' size ={RFPercentage(3)} color={color} />
               // <Image
               // source = {require('../../assets/icons/tab-profile.png')}
               //   style = {{ width: 30, height: 30, tintColor: color}}
@@ -140,10 +147,12 @@ import Reward from '../../pages/Reward';
           options={{
             // tabBarIcon: ({ color }) => <TabIcon name="resorts"/>,
             tabBarIcon: ({ color, size }) => (
-              <Image
-                source = {require('../../assets/icons/tab-ski.png')}
-                style = {{ width: 21, height: 30, tintColor: color}}
-              />
+              <Entypo name='folder-video' size ={RFPercentage(3)} color={color} />
+
+              // <Image
+              //   source = {require('../../assets/icons/tab-ski.png')}
+              //   style = {{ width: 21, height: 30, tintColor: color}}
+              // />
             )
           }}
         /> 
@@ -153,10 +162,13 @@ import Reward from '../../pages/Reward';
           options={{
             // tabBarIcon: ({ color }) => <TabIcon name="chums"/>,
             tabBarIcon: ({ color, size }) => (
-              <Image
-                source = {require('../../assets/icons/tab-chums.png')}
-                style = {{ width: 38, height: 30, tintColor: color}}
-              />
+              <MaterialIcons name='online-prediction' size ={RFPercentage(4)}
+              style={{marginBottom:RFPercentage(0)}}
+              color={color} />
+              // <Image
+              //   source = {require('../../assets/icons/tab-chums.png')}
+              //   style = {{ width: 38, height: 30, tintColor: color}}
+              // />
             )
           }}
         />
@@ -166,10 +178,11 @@ import Reward from '../../pages/Reward';
           options={{
             // tabBarIcon: ({ color }) => <TabIcon name="chums"/>,
             tabBarIcon: ({ color, size }) => (
-              <Image
-                source = {require('../../assets/icons/tab-chums.png')}
-                style = {{ width: 38, height: 30, tintColor: color}}
-              />
+              <Octicons name='gift' size ={RFPercentage(2.5)} color={color} />
+              // <Image
+              //   source = {require('../../assets/icons/tab-chums.png')}
+              //   style = {{ width: 38, height: 30, tintColor: color}}
+              // />
             )
           }}
         />
@@ -179,10 +192,12 @@ import Reward from '../../pages/Reward';
           options={{
             // tabBarIcon: ({ color }) => <TabIcon name="chums"/>,
             tabBarIcon: ({ color, size }) => (
-              <Image
-                source = {require('../../assets/icons/tab-chums.png')}
-                style = {{ width: 38, height: 30, tintColor: color}}
-              />
+              <FontAwesome name='user-circle-o' size ={RFPercentage(3)} color={color} />
+
+              // <Image
+              //   source = {require('../../assets/icons/tab-chums.png')}
+              //   style = {{ width: 38, height: 30, tintColor: color}}
+              // />
             )
           }}
         />
