@@ -29,8 +29,7 @@ export const DUMMYBANNERS = [
   "https://i.picsum.photos/id/524/700/500.jpg?hmac=PuAKCqRNlpa6_UJLeKABjXH9l3MFgsv-LHMm0bDfey4",
 ];
 
-const Home = () => {
-
+const Home = ({ navigation }) => {
   const carouselRef = useRef(null);
 
   return (
@@ -115,7 +114,7 @@ const Home = () => {
           <TitleBar title={`Match Highlight`} seeAllEnable={true} />
 
           <View style={{ height: RFPercentage(26) }}>
-            <MatchPreviewCarousel />
+            <MatchPreviewCarousel navigateTo={() => navigation?.navigate('VideoScreen')} />
           </View>
           {/* MATCH HIGHLIGHT */}
 
@@ -132,14 +131,16 @@ const Home = () => {
   );
 };
 
-const MatchPreviewCarousel = () => {
+const MatchPreviewCarousel = ({ navigateTo }) => {
+  console.log(navigateTo, '/////////')
   return (
     <FlatList
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{ paddingHorizontal: RFPercentage(2), }}
       data={DUMMYBANNERS}
-      renderItem={(item) => <CustomCarousel item={item} />}
+      renderItem={(item) => <CustomCarousel item={item} navigateTo={() => navigateTo && navigateTo()}
+      />}
       keyExtractor={item => item.id}
     />
   )
