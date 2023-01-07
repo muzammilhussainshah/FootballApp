@@ -3,7 +3,10 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 import SCColors from '../../styles/SCColors';
 
 export const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+     backgroundColor: SCColors.primary
+  },
   caregoryBtnContainer: activeCategory => ({
     height: RFPercentage(5),
     marginVertical: RFPercentage(.5),
@@ -27,9 +30,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center'
   }),
   crousalBaner: {
-    height: '80%',
-    width: '80%',
-    borderRadius: RFPercentage(3)
+    height: '60%',
+    width: '60%',
+    // borderRadius: RFPercentage(3)
   },
   liveDatesContainer: {
     backgroundColor: SCColors.primary,

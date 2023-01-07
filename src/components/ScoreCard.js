@@ -23,8 +23,8 @@ const ScoreCard = ({ team1Logo,
     <View style={styles.liveScroreContainer}>
       <View style={styles.ScoreHeaderContainer}>
         <Ionicons name='logo-firefox' color="white" size={RFPercentage(2.5)} />
-        <View style={styles.liveIconContainer}>
-          <Text style={styles.liveText}>{`LIVE`}</Text>
+        <View style={styles.liveIconContainer('small')}>
+          <Text style={styles.liveText('small')}>{`LIVE`}</Text>
         </View>
       </View>
       <View style={styles.ScoreTeamLogoContainer}>

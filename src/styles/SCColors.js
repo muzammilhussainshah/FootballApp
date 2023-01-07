@@ -1,6 +1,6 @@
 const SCColors = {
     white: "#ffffff",
-    primary:"#272727",
+    primary: "#272727",
     main: "#0352F7",
     profileTab: '#ECF0F7',
     gradientRight: "#0373FB",
@@ -9,6 +9,7 @@ const SCColors = {
     tabInactive: "#898989",
     ScoreCart: "#353535",
     tabActive: "#e7e7e7",
+    lightGray: '#3d3d3d',
     red: "red",
 }
 

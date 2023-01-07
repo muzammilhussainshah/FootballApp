@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import {
   FlatList,
   Image,
+  ScrollView,
   Text,
   TouchableOpacity,
   View
@@ -16,8 +17,10 @@ import SCColors from '../../styles/SCColors';
 import { styles } from './styles';
 import {
   DUMMYBANNERS,
-  LIVEDATES
+  LIVEDATES,
+  MATCHSTATUS
 } from './DummyData';
+import TrendingNewsCard from '../../components/TrendingNewsCard';
 
 const Live = () => {
   // STATE
@@ -49,6 +52,7 @@ const Live = () => {
 
   return (
     <>
+
       {/* HEADER */}
       < Header />
       {/* HEADER */}
@@ -65,18 +69,34 @@ const Live = () => {
         />
       </View>
       {/* LIVE DATES BUTTONS */}
+      <View style={[styles.container,]}>
+        <ScrollView >
+          {/* LIVE TEAMS */}
+          <FlatList
+            data={DUMMYBANNERS}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.liveTeamsContainer}
+            renderItem={({ item }) => teamIcons(item)}
+            keyExtractor={item => item.id}
+          />
+          {/* LIVE TEAMS */}
+          {/* TRENDING NEWS */}
+          <FlatList
+            data={MATCHSTATUS}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{ padding: RFPercentage(2) }}
+            renderItem={(props) => (
+              <>
+                <TrendingNewsCard
+                  matchStatus 
+                  newDatalength={MATCHSTATUS.length} item={props} />
+              </>)}
+            keyExtractor={item => item.id}
+          />
+          {/* TRENDING NEWS */}
 
-      {/* LIVE TEAMS */}
-      <FlatList
-        data={DUMMYBANNERS}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.liveTeamsContainer}
-        renderItem={({ item }) => teamIcons(item)}
-        keyExtractor={item => item.id}
-      />
-      {/* LIVE TEAMS */}
-
+        </ScrollView></View>
     </>
   );
 };

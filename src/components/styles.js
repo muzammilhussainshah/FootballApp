@@ -93,18 +93,19 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: RFPercentage(1),
   },
-  liveIconContainer: {
-    height: 13,
-    width: 30,
+  liveIconContainer: (size, direction) => ({
+    height: size == 'medium' ? RFPercentage(2.6) : RFPercentage(2),
+    width: size == 'medium' ? RFPercentage(5.7) : RFPercentage(4.5),
     justifyContent: 'center',
+    alignSelf: direction == 'right' ? 'flex-end' : null,
     alignItems: 'center',
     borderRadius: 15,
     backgroundColor: SCColors.red
-  },
-  liveText: {
+  }),
+  liveText: (size) => ({
     color: SCColors.white,
-    fontSize: RFPercentage(1.2)
-  },
+    fontSize: size == 'medium' ? RFPercentage(1.7) : RFPercentage(1.2)
+  }),
   VSText: {
     color: SCColors.white,
     fontSize: RFPercentage(1.8)
@@ -126,12 +127,12 @@ export const styles = StyleSheet.create({
     height: footer ? RFPercentage(21) : RFPercentage(23),
     borderRadius: RFPercentage(2),
     borderBottomRightRadius: footer ? 0 : RFPercentage(2),
-     borderBottomLeftRadius: footer ? 0 : RFPercentage(2)
+    borderBottomLeftRadius: footer ? 0 : RFPercentage(2)
   }),
   carouselContainer: footer => ({
     borderRadius: RFPercentage(2),
     borderBottomRightRadius: footer ? 0 : RFPercentage(2),
-     borderBottomLeftRadius: footer ? 0 : RFPercentage(2),
+    borderBottomLeftRadius: footer ? 0 : RFPercentage(2),
     height: footer ? RFPercentage(29) : RFPercentage(22),
     width: footer ? flexW1 * 7.5 : flexW1 * 6.5,
     marginRight: flexW1 * 0.3,
@@ -151,7 +152,7 @@ export const styles = StyleSheet.create({
     width: '90%',
     fontSize: RFPercentage(1.8)
   },
-  newsCartContainer: (topCurve, bottomCurve) => ({
+  newsCartContainer: (topCurve, bottomCurve, matchStatus) => ({
     height: RFPercentage(12),
     width: '100%',
     margin: 1,
@@ -196,5 +197,32 @@ export const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: "center"
-  }
+  },
+  matchStatusSubContainer: { flex: 1, height: '100%', paddingHorizontal: RFPercentage(2), justifyContent: 'center' },
+  liveMatchTimeContainer: {
+    height: RFPercentage(4.2),
+    width: '75%',
+    flexDirection: "row",
+    justifyContent: 'space-between',
+    paddingHorizontal: RFPercentage(1),
+    alignSelf: 'flex-end',
+    alignItems: 'center',
+    borderRadius: RFPercentage(2.2),
+    backgroundColor: SCColors.lightGray
+  },
+  bellIconContainer: {
+    height: RFPercentage(3.2),
+    width: RFPercentage(3.2),
+    backgroundColor: SCColors.ScoreCart,
+
+    justifyContent: 'center',
+
+    alignItems: 'center',
+    borderRadius: RFPercentage(1.6)
+  },
+  caregoryBtnText: { color: SCColors.white, fontWeight: '600' },
+  team1Container: { flex: 1, alignItems: "center", flexDirection: 'row' },
+  team1ProfileContainer: { width: RFPercentage(6), },
+  teamLogo: { height: RFPercentage(3), width: RFPercentage(3) },
+
 });
