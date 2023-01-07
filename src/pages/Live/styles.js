@@ -1,11 +1,11 @@
+import SCColors from '../../styles/SCColors';
 import { StyleSheet } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import SCColors from '../../styles/SCColors';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-     backgroundColor: SCColors.primary
+    backgroundColor: SCColors.primary
   },
   caregoryBtnContainer: activeCategory => ({
     height: RFPercentage(5),
@@ -32,7 +32,6 @@ export const styles = StyleSheet.create({
   crousalBaner: {
     height: '60%',
     width: '60%',
-    // borderRadius: RFPercentage(3)
   },
   liveDatesContainer: {
     backgroundColor: SCColors.primary,

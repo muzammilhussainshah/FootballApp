@@ -1,6 +1,9 @@
-import { Dimensions, StyleSheet } from 'react-native';
-import { RFPercentage } from 'react-native-responsive-fontsize';
 import SCColors from '../styles/SCColors';
+import { RFPercentage } from 'react-native-responsive-fontsize';
+import {
+  Dimensions,
+  StyleSheet
+} from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const flexW1 = windowWidth / 10
@@ -152,7 +155,7 @@ export const styles = StyleSheet.create({
     width: '90%',
     fontSize: RFPercentage(1.8)
   },
-  newsCartContainer: (topCurve, bottomCurve, matchStatus) => ({
+  newsCartContainer: (topCurve, bottomCurve,) => ({
     height: RFPercentage(12),
     width: '100%',
     margin: 1,
@@ -198,7 +201,12 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: "center"
   },
-  matchStatusSubContainer: { flex: 1, height: '100%', paddingHorizontal: RFPercentage(2), justifyContent: 'center' },
+  matchStatusSubContainer: {
+    flex: 1,
+    height: '100%',
+    paddingHorizontal: RFPercentage(2),
+    justifyContent: 'center'
+  },
   liveMatchTimeContainer: {
     height: RFPercentage(4.2),
     width: '75%',
@@ -214,15 +222,25 @@ export const styles = StyleSheet.create({
     height: RFPercentage(3.2),
     width: RFPercentage(3.2),
     backgroundColor: SCColors.ScoreCart,
-
     justifyContent: 'center',
-
     alignItems: 'center',
     borderRadius: RFPercentage(1.6)
   },
-  caregoryBtnText: { color: SCColors.white, fontWeight: '600' },
-  team1Container: { flex: 1, alignItems: "center", flexDirection: 'row' },
-  team1ProfileContainer: { width: RFPercentage(6), },
-  teamLogo: { height: RFPercentage(3), width: RFPercentage(3) },
+  caregoryBtnText: {
+    color: SCColors.white,
+    fontWeight: '600'
+  },
+  team1Container: {
+    flex: 1,
+    alignItems: "center",
+    flexDirection: 'row'
+  },
+  team1ProfileContainer: {
+    width: RFPercentage(6),
+  },
+  teamLogo: {
+    height: RFPercentage(3),
+    width: RFPercentage(3)
+  },
 
 });

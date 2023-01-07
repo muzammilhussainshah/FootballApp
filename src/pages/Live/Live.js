@@ -13,14 +13,13 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 
 // @components
 import Header from '../../components/Header';
-import SCColors from '../../styles/SCColors';
+import TrendingNewsCard from '../../components/TrendingNewsCard';
 import { styles } from './styles';
 import {
   DUMMYBANNERS,
   LIVEDATES,
   MATCHSTATUS
 } from './DummyData';
-import TrendingNewsCard from '../../components/TrendingNewsCard';
 
 const Live = () => {
   // STATE
@@ -89,14 +88,15 @@ const Live = () => {
             renderItem={(props) => (
               <>
                 <TrendingNewsCard
-                  matchStatus 
+                  matchStatus
                   newDatalength={MATCHSTATUS.length} item={props} />
               </>)}
             keyExtractor={item => item.id}
           />
           {/* TRENDING NEWS */}
 
-        </ScrollView></View>
+        </ScrollView>
+      </View>
     </>
   );
 };
