@@ -5,5 +5,60 @@ import SCColors from '../../styles/SCColors';
 
 export const styles = StyleSheet.create({
     VideoContainer: { flexDirection: "row", justifyContent: "center", flex: 3.4 },
-    VideoBody: { flex: 7.5, backgroundColor: SCColors.primary }
+    VideoBody: { flex: 7.5, backgroundColor: SCColors.primary, paddingHorizontal: RFPercentage(2) },
+    videoTitle: { flex: 2, justifyContent: 'space-evenly', },
+    videoTabs: { flex: 1, },
+    videoTabComponent: { flex: 7, },
+    TitleBarTile: {
+        fontWeight: '700',
+        fontSize: RFPercentage(2.6),
+        color: 'white',
+    },
+    TeamText: {
+        color: SCColors.white,
+        lineHeight: RFPercentage(3),
+        fontSize: RFPercentage(1.7)
+    },
+    caregoryBtnContainer: activeCategory => ({
+        height: RFPercentage(5),
+        marginVertical: RFPercentage(.5),
+        marginRight: RFPercentage(3),
+        justifyContent: "center",
+        borderBottomWidth: activeCategory ? 2 : 0,
+        borderBottomColor: activeCategory ? SCColors.white : null
+    }),
+    caregoryBtnText: activeCategory => ({ color: activeCategory ? SCColors.white : SCColors.tabInactive }),
+    scoreBoardContainer: { height: RFPercentage(17), marginVertical: RFPercentage(1), flexDirection: 'row', paddingHorizontal: RFPercentage(4), backgroundColor: SCColors.ScoreCart, borderRadius: RFPercentage(2) },
+    // scoreContainer:{flexDirection:'row',justifyContent:'space-between'}
+    scoreTeam1Container: { flex: 1, justifyContent: 'center', },
+    scoreContainer: { flex: 1, flexDirection: "row", justifyContent: "space-between", paddingVertical: RFPercentage(3.5) },
+    scoreTeam2Container: { flex: 1, justifyContent: 'center', alignItems: "flex-end" },
+    GoalText: {
+        color: SCColors.white,
+        fontSize: RFPercentage(4.5),
+        fontWeight: '600'
+    },
+    goalScorerContainer: (position) => ({
+        height: RFPercentage(5), backgroundColor: SCColors.ScoreCart,
+        borderTopLeftRadius: position == 'top' ? RFPercentage(2) : 0,
+        borderTopRightRadius: position == 'top' ? RFPercentage(2) : 0,
+        marginVertical: RFPercentage(0.2),
+        borderBottomLeftRadius: position == 'bottom' ? RFPercentage(2) : 0,
+        borderBottomRightRadius: position == 'bottom' ? RFPercentage(2) : 0,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: "center", paddingHorizontal: RFPercentage(2)
+    }),
+    breakColumn: { height: '80%', backgroundColor: SCColors.lightGray, width: RFPercentage(0.1) },
+    thumbnailImage: {
+        height: "100%", width: "100%", position: 'absolute', zIndex: -1
+    },
+    thumbnailContainer: { flexDirection: "row", width: "100%", justifyContent: 'space-between', padding: RFPercentage(1), },
+    thumbnailHeader: { flexDirection: 'row', width: '20%', height: RFPercentage(3), justifyContent: "space-around" },
+    uploadIcon: { transform: [{ rotate: "270deg" }], height: RFPercentage(3) },
+    playBtn: { position: "absolute", alignSelf: "center", },
+    thumbnailFooter: {
+        flexDirection: 'row', position: "absolute", bottom: RFPercentage(1), right: RFPercentage(1),
+        width: '20%', justifyContent: "space-around"
+    }
 });

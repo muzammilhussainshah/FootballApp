@@ -10,9 +10,8 @@ import {
 // @components
 import { styles } from './styles'
 
-const CustomCarousel = (props) => {
-  const { item, footer, footerText, navigateTo } = props
-  console.log(props, 'propsprops')
+const CustomCarousel = ({ item, footer, footerText, navigateTo }) => {
+  // const { item, footer, footerText, navigateTo } = props
   return (
     <>
       <TouchableOpacity
