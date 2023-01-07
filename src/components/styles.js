@@ -125,14 +125,15 @@ export const styles = StyleSheet.create({
   subCrousalBaner: footer => ({
     height: footer ? RFPercentage(21) : RFPercentage(23),
     borderRadius: RFPercentage(2),
-    borderBottomRightRadius: footer ? 0 : RFPercentage(2), borderBottomLeftRadius: footer ? 0 : RFPercentage(2)
+    borderBottomRightRadius: footer ? 0 : RFPercentage(2),
+     borderBottomLeftRadius: footer ? 0 : RFPercentage(2)
   }),
   carouselContainer: footer => ({
-
     borderRadius: RFPercentage(2),
-    borderBottomRightRadius: footer ? 0 : RFPercentage(2), borderBottomLeftRadius: footer ? 0 : RFPercentage(2),
+    borderBottomRightRadius: footer ? 0 : RFPercentage(2),
+     borderBottomLeftRadius: footer ? 0 : RFPercentage(2),
     height: footer ? RFPercentage(29) : RFPercentage(22),
-    width: flexW1 * 6.5,
+    width: footer ? flexW1 * 7.5 : flexW1 * 6.5,
     marginRight: flexW1 * 0.3,
     marginVertical: RFPercentage(1)
   }),
