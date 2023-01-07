@@ -132,15 +132,13 @@ const Home = ({ navigation }) => {
 };
 
 const MatchPreviewCarousel = ({ navigateTo }) => {
-  console.log(navigateTo, '/////////')
   return (
     <FlatList
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{ paddingHorizontal: RFPercentage(2), }}
       data={DUMMYBANNERS}
-      renderItem={(item) => <CustomCarousel item={item} navigateTo={() => navigateTo && navigateTo()}
-      />}
+      renderItem={(item) => <CustomCarousel item={item} navigateTo={() => navigateTo && navigateTo()} />}
       keyExtractor={item => item.id}
     />
   )

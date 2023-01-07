@@ -3,7 +3,8 @@ import React from 'react';
 import {
   Text,
   Image,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
 
 import moment from 'moment';
@@ -28,16 +29,21 @@ const ExploreCart = ({ item }) => {
           <Text style={styles.carouselFooterText}>{item?.item?.title}</Text>
         </View>
         <View style={styles.TrendingNewsCardFooterContainer}>
-          <AntDesign
-            name='hearto'
-            size={RFPercentage(2)}
-            color={SCColors.tabInactive} />
+          <TouchableOpacity>
+
+            <AntDesign
+              name='hearto'
+              size={RFPercentage(2)}
+              color={SCColors.tabInactive} />
+          </TouchableOpacity>
           <Text style={[styles.VSText, styles.trendNewsFooterText2]}>{item?.item?.likes}</Text>
-          <Octicons
-            name='comment'
-            size={RFPercentage(2)}
-            style={styles.trendNewsFooterText}
-            color={SCColors.tabInactive} />
+          <TouchableOpacity>
+            <Octicons
+              name='comment'
+              size={RFPercentage(2)}
+              style={styles.trendNewsFooterText}
+              color={SCColors.tabInactive} />
+          </TouchableOpacity>
           <Text style={[styles.VSText, styles.trendNewsFooterText2]}>{item?.item?.comments}</Text>
           <Text style={[styles.VSText, styles.trendNewsFooterText]}>{moment(item?.item?.timeStamp).calendar()}</Text>
         </View>

@@ -23,7 +23,7 @@ import {
   EXPLORECATEGORY
 } from './DummyData';
 
-const Explore = () => {
+const Explore = ({ navigation }) => {
   const [activeCategory, setActiveCategory] = useState('All')
 
   const categoryButton = (item) => {
@@ -69,7 +69,8 @@ const Explore = () => {
           <TitleBar title={`Match Highlight`} seeAllEnable={true} />
 
           <View style={{ height: RFPercentage(26) }}>
-            <MatchPreviewCarousel />
+            <MatchPreviewCarousel navigateTo={() => navigation?.navigate('VideoScreen')} />
+            {/* <MatchPreviewCarousel /> */}
           </View>
           {/* MATCH HIGHLIGHT */}
 
@@ -90,14 +91,18 @@ const Explore = () => {
   );
 };
 
-const MatchPreviewCarousel = ({ footer, footerText }) => {
+const MatchPreviewCarousel = ({ footer, footerText, navigateTo }) => {
   return (
     <FlatList
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{ paddingHorizontal: RFPercentage(2), }}
       data={DUMMYBANNERS}
-      renderItem={(item) => <CustomCarousel footer={footer == true ? true : false} footerText={footerText} item={item} />}
+      renderItem={(item) => (
+        <CustomCarousel
+          navigateTo={() => navigateTo && navigateTo()}
+          footer={footer == true ? true : false}
+          footerText={footerText} item={item} />)}
       keyExtractor={item => item.id}
     />
   )
