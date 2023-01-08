@@ -80,7 +80,7 @@ const Explore = ({ navigation }) => {
             data={NEWSDATA}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{ padding: RFPercentage(2) }}
-            renderItem={(props) => <TrendingNewsCard newDatalength={NEWSDATA.length} item={props} />}
+            renderItem={(props) => <TrendingNewsCard navigateTo={() => navigation.navigate('TrendingNews')} newDatalength={NEWSDATA.length} item={props} />}
             keyExtractor={item => item.id}
           />
           {/* TRENDING NEWS */}

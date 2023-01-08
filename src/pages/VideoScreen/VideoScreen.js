@@ -44,7 +44,9 @@ const VideoScreen = ({ navigation }) => {
 
             <View style={styles.VideoBody}>
                 {/* VIDEO TITLE */}
-                <VideoTitle />
+                <VideoTitle title={`Manchester United vs Newcastle`}
+                    subTitle2={`Old Trafford Stadium`}
+                    subTitle={`Premier League Gameweek 4 - Sep 11`} />
                 {/* VIDEO TITLE */}
 
                 {/* VIDEO TABS */}

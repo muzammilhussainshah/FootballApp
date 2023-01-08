@@ -18,7 +18,7 @@ import SCColors from '../../../styles/SCColors';
 import { styles } from '../styles';
 
 // THUMBNAIL HEADER
-export const ThumbnailHeader = ({ navigation,backButton }) => {
+export const ThumbnailHeader = ({ navigation, backButton, type }) => {
     return (
         <View style={styles.thumbnailContainer}>
             <TouchableOpacity
@@ -26,14 +26,16 @@ export const ThumbnailHeader = ({ navigation,backButton }) => {
                 onPress={() => backButton && navigation.pop()}>
                 <Ionicons name={`chevron-back`} size={RFPercentage(4)} color={SCColors.white} />
             </TouchableOpacity>
-            <View style={styles.thumbnailHeader}>
-                <TouchableOpacity activeOpacity={0.8}  >
-                    <MaterialCommunityIcons name={`cast`} size={RFPercentage(3)} color={SCColors.white} />
-                </TouchableOpacity>
-                <TouchableOpacity activeOpacity={0.8}  >
-                    <MaterialIcons name={`logout`} size={RFPercentage(3)} style={styles.uploadIcon} color={SCColors.white} />
-                </TouchableOpacity>
-            </View>
+            {type !== 'image' &&
+                <View style={styles.thumbnailHeader}>
+                    <TouchableOpacity activeOpacity={0.8}  >
+                        <MaterialCommunityIcons name={`cast`} size={RFPercentage(3)} color={SCColors.white} />
+                    </TouchableOpacity>
+                    <TouchableOpacity activeOpacity={0.8}  >
+                        <MaterialIcons name={`logout`} size={RFPercentage(3)} style={styles.uploadIcon} color={SCColors.white} />
+                    </TouchableOpacity>
+                </View>
+            }
 
         </View>
     )
@@ -106,13 +108,13 @@ export const PlayButton = () => {
 export const Thumbnail = ({ photoURL }) => <Image source={{ uri: photoURL }} style={styles.thumbnailImage} />
 // THUMBNAIL PHOTO
 
-export const VideoTitle = () => {
+export const VideoTitle = ({ title, subTitle, subTitle2 }) => {
     return (
         <View style={styles.videoTitle}>
-            <Text style={styles.TitleBarTile}>{`Manchester United vs Newcastle`}</Text>
+            <Text style={styles.TitleBarTile}>{title}</Text>
             <View>
-                <Text style={styles.TeamText}>{`Premier League Gameweek 4 - Sep 11`}</Text>
-                <Text style={styles.TeamText}>{`Old Trafford Stadium`}</Text>
+                <Text style={styles.TeamText}>{subTitle}</Text>
+                <Text style={styles.TeamText}>{subTitle2}</Text>
             </View>
         </View>
     )
@@ -127,13 +129,18 @@ export const GoalScorerContainer = ({ position }) => {
         </View>
     )
 }
-export const VIDEOSECTION = ({ navigation, photoURL, backButton }) => {
+export const VIDEOSECTION = ({ navigation, photoURL, backButton, type }) => {
     return (
         <View style={styles.VideoContainer}>
+            {/* <> */}
             <Thumbnail photoURL={photoURL} />
-            <ThumbnailHeader backButton={backButton} navigation={navigation} />
-            <PlayButton />
-            <ThumbnailFooter />
+            <ThumbnailHeader backButton={backButton} type={type} navigation={navigation} />
+            {type !== 'image' &&
+                <>
+                    <PlayButton />
+                    <ThumbnailFooter />
+                </>
+            }
         </View>
     )
 }

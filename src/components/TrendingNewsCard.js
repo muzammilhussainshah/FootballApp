@@ -1,21 +1,23 @@
 // @app
 import React from 'react';
-import { View } from 'react-native';
+import { TouchableOpacity, } from 'react-native';
 
 // @components
 import { styles } from './styles'
 import ExploreCart from './ExploreCart';
 import MatchStats from './MatchStats';
 
-const TrendingNewsCard = ({ item, newDatalength, matchStatus }) => {
+const TrendingNewsCard = ({ item, newDatalength, matchStatus,navigateTo }) => {
   return (
 
     // CART 
-    <View style={styles.newsCartContainer(item.index == 0, item.index + 1 == newDatalength,)}>
+    <TouchableOpacity
+      onPress={() => navigateTo && navigateTo()}
+      style={styles.newsCartContainer(item.index == 0, item.index + 1 == newDatalength,)}>
       {matchStatus ?
         <MatchStats item={item} /> :
         <ExploreCart item={item} />}
-    </View>
+    </TouchableOpacity>
     // CART 
 
   );
