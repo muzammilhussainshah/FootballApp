@@ -174,8 +174,51 @@ export const styles = StyleSheet.create({
         backgroundColor: 'blue',
         marginBottom: RFPercentage(2)
     },
-    videoIcons: { height: RFPercentage(5), width: RFPercentage(5), justifyContent: 'center', alignItems: "center", backgroundColor: SCColors.ScoreCart, borderRadius: RFPercentage(5) },
-    footerBtnContainer: { height: '70%', width: '80%', borderRadius: RFPercentage(5), backgroundColor: SCColors.skyBlue, justifyContent: 'center', alignItems: 'center' },
-    footerBtnText: { color: SCColors.white, fontSize: RFPercentage(2) },
-WillStartInContainer: { height: RFPercentage(12), justifyContent: "center", alignItems: 'center', borderRadius: RFPercentage(2), width: RFPercentage(25), backgroundColor: SCColors.tabInactive },
+    videoIcons: {
+        height: RFPercentage(5),
+        width: RFPercentage(5),
+        justifyContent: 'center',
+        alignItems: "center",
+        backgroundColor: SCColors.ScoreCart,
+        borderRadius: RFPercentage(5)
+    },
+    footerBtnContainer: {
+        height: '70%',
+        width: '80%',
+        borderRadius: RFPercentage(5),
+        backgroundColor: SCColors.skyBlue,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    footerBtnText: {
+        color: SCColors.white,
+        fontSize: RFPercentage(2)
+    },
+    WillStartInContainer: {
+        height: RFPercentage(12),
+        justifyContent: "center",
+        alignItems: 'center',
+        borderRadius: RFPercentage(2),
+        width: RFPercentage(25),
+        backgroundColor: SCColors.tabInactive
+    },
+
+    liveIconContainer: (size, direction) => ({
+        height: size == 'medium' ? RFPercentage(2.6) : RFPercentage(2),
+        width: size == 'medium' ? RFPercentage(5.7) : RFPercentage(4.5),
+        justifyContent: 'center',
+        alignSelf: direction == 'right' ? 'flex-end' : null,
+        alignItems: 'center',
+        borderRadius: 15,
+        backgroundColor: SCColors.red
+    }),
+    liveText: (size) => ({
+        color: SCColors.white,
+        fontSize: size == 'medium' ? RFPercentage(1.7) : RFPercentage(1.2)
+    }),
+    liveIconPosition: {
+        position: 'absolute',
+        bottom: RFPercentage(2),
+        left: RFPercentage(4)
+    }
 });

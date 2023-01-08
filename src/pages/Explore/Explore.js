@@ -35,6 +35,7 @@ const Explore = ({ navigation }) => {
       </TouchableOpacity>
     )
   }
+
   return (
     <>
       {/* HEADER */}
@@ -56,40 +57,111 @@ const Explore = ({ navigation }) => {
 
       <View style={[styles.container,]}>
         <ScrollView >
+          {activeCategory == 'All' ?
+            <All navigation={navigation} />
+            :
+            (activeCategory == 'Preview' || activeCategory == 'Highlight') ?
+              <Preview navigation={navigation} />
+              :
+              (activeCategory == 'News Update') ?
+                <NewsUpdate navigation={navigation} />
 
-          {/* BANNERS */}
-          <View style={{ height: RFPercentage(29), marginVertical: RFPercentage(1), marginBottom: RFPercentage(2) }}>
-            <MatchPreviewCarousel
-              footer={true}
-              footerText={`Player, Manager & Goal of the Month Premier League Awards?`} />
-          </View>
-          {/* BANNERS */}
-
-          {/* MATCH HIGHLIGHT */}
-          <TitleBar title={`Match Highlight`} seeAllEnable={true} />
-
-          <View style={{ height: RFPercentage(26) }}>
-            <MatchPreviewCarousel navigateTo={() => navigation?.navigate('VideoScreen')} />
-          </View>
-          {/* MATCH HIGHLIGHT */}
-
-          {/* TRENDING NEWS */}
-          <TitleBar title={`Trending News`} seeAllEnable={true} />
-          <FlatList
-            data={NEWSDATA}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ padding: RFPercentage(2) }}
-            renderItem={(props) => <TrendingNewsCard navigateTo={() => navigation.navigate('TrendingNews')} newDatalength={NEWSDATA.length} item={props} />}
-            keyExtractor={item => item.id}
-          />
-          {/* TRENDING NEWS */}
-
+                : <></>}
         </ScrollView>
-      </View>
+      </View >
     </>
   );
 };
+const NewsUpdate = () => {
+  return (
+    <>
+      {/* BANNERS */}
+      < View style={styles.bannerContainer}>
+        <MatchPreviewCarousel
+          footer={true}
+          footerText={`Player, Manager & Goal of the Month Premier League Awards?`} />
+      </View>
+      {/* BANNERS */}
+      {/* TRENDING NEWS */}
+      <TitleBar title={`Trending News`} seeAllEnable={true} />
+      <FlatList
+        data={NEWSDATA}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ padding: RFPercentage(2) }}
+        renderItem={(props) => <TrendingNewsCard
+          navigateTo={() => navigation.navigate('TrendingNews')}
+          newDatalength={NEWSDATA.length}
+          item={props} />}
+        keyExtractor={item => item.id}
+      />
+      {/* TRENDING NEWS */}
+    </>
+  )
+}
+const All = ({ navigation }) => {
+  return (
+    <>
+      {/* BANNERS */}
+      < View style={styles.bannerContainer}>
+        <MatchPreviewCarousel
+          footer={true}
+          footerText={`Player, Manager & Goal of the Month Premier League Awards?`} />
+      </View>
+      {/* BANNERS */}
 
+      {/* MATCH HIGHLIGHT */}
+      <TitleBar title={`Match Highlight`} seeAllEnable={true} />
+
+      <View style={{ height: RFPercentage(26) }}>
+        <MatchPreviewCarousel
+          navigateTo={() => navigation?.navigate('VideoScreen')} />
+      </View>
+      {/* MATCH HIGHLIGHT */}
+
+      {/* TRENDING NEWS */}
+      <TitleBar title={`Trending News`} seeAllEnable={true} />
+      <FlatList
+        data={NEWSDATA}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ padding: RFPercentage(2) }}
+        renderItem={(props) => <TrendingNewsCard
+          navigateTo={() => navigation.navigate('TrendingNews')}
+          newDatalength={NEWSDATA.length}
+          item={props} />}
+        keyExtractor={item => item.id}
+      />
+      {/* TRENDING NEWS */}
+    </>
+  )
+}
+const Preview = () => {
+  return (<>
+    {/* MATCH HIGHLIGHT */}
+    < TitleBar title={`UEFA Champions League`} seeAllEnable={true} />
+
+    <View style={{ height: RFPercentage(26) }}>
+      <MatchPreviewCarousel
+        navigateTo={() => navigation?.navigate('VideoScreen')} />
+    </View>
+    {/* MATCH HIGHLIGHT                  : */}
+    {/* MATCH HIGHLIGHT */}
+    < TitleBar title={`Premier League`} seeAllEnable={true} />
+
+    <View style={{ height: RFPercentage(26) }}>
+      <MatchPreviewCarousel
+        navigateTo={() => navigation?.navigate('VideoScreen')} />
+    </View>
+    {/* MATCH HIGHLIGHT                  : */}
+    {/* MATCH HIGHLIGHT */}
+    < TitleBar title={`Seria A`} seeAllEnable={true} />
+
+    <View style={{ height: RFPercentage(26) }}>
+      <MatchPreviewCarousel
+        navigateTo={() => navigation?.navigate('VideoScreen')} />
+    </View>
+    {/* MATCH HIGHLIGHT                  : */}
+  </>)
+}
 const MatchPreviewCarousel = ({ footer, footerText, navigateTo }) => {
   return (
     <FlatList

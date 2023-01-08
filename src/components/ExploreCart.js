@@ -30,7 +30,6 @@ const ExploreCart = ({ item }) => {
         </View>
         <View style={styles.TrendingNewsCardFooterContainer}>
           <TouchableOpacity>
-
             <AntDesign
               name='hearto'
               size={RFPercentage(2)}

@@ -18,4 +18,5 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   }),
   caregoryBtnText: activeCategory => ({ color: activeCategory ? SCColors.black : SCColors.tabInactive }),
+  bannerContainer: { height: RFPercentage(29), marginVertical: RFPercentage(1), marginBottom: RFPercentage(2) },
 });

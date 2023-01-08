@@ -143,11 +143,16 @@ export const GoalScorerContainer = ({ position }) => {
         </View>
     )
 }
-export const VIDEOSECTION = ({ navigation, photoURL, backButton, type, willStartIn }) => {
+export const VIDEOSECTION = ({ navigation, photoURL, isLive, backButton, type, willStartIn }) => {
     return (
         <View style={styles.VideoContainer}>
             {/* <> */}
             <Thumbnail photoURL={photoURL} />
+            {isLive &&
+                <View style={[styles.liveIconContainer('medium'), styles.liveIconPosition]}>
+                    <Text style={styles.liveText('medium')}>{`LIVE`}</Text>
+                </View>
+            }
             <ThumbnailHeader backButton={backButton} type={type} navigation={navigation} />
             {willStartIn &&
                 <WillStartIn willStartIn={willStartIn} />

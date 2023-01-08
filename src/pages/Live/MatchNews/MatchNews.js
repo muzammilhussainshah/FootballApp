@@ -1,34 +1,33 @@
 // @app
-import moment from 'moment';
 import React, {
     useState
 } from 'react';
 import {
-    Dimensions,
     FlatList,
     ScrollView,
     Text,
-    TextInput,
     TouchableOpacity,
     View
 } from 'react-native';
 
-import AntDesign from 'react-native-vector-icons/AntDesign'
+import moment from 'moment';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import Octicons from 'react-native-vector-icons/Octicons'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
 import SCColors from '../../../styles/SCColors';
 import { styles } from '../../VideoScreen/styles';
 import {
+    VIDEOTABS,
+    TRENDINGNEWSDATA
+} from '../DummyData';
+import {
     VIDEOSECTION,
     VideoTitle
 } from '../../VideoScreen/Components/Components';
-// import { TRENDINGNEWSDATA } from '../../Explore/DummyData';
-import { VIDEOTABS, TRENDINGNEWSDATA } from '../DummyData';
 
-const MatchNews = ({ navigation }) => {
+const MatchNews = ({ navigation, route }) => {
+    const { isLive } = route.params
     const [activeCategory, setActiveCategory] = useState('Description')
     const FooterButtons = ({ title }) => {
         return (
@@ -61,8 +60,9 @@ const MatchNews = ({ navigation }) => {
                     <VIDEOSECTION
                         navigation={navigation}
                         backButton
-                        type={'image'}
-                        willStartIn={new Date()}
+                        type={isLive ? 'video' : 'image'}
+                        isLive={isLive}
+                        willStartIn={isLive == false && new Date()}
                         photoURL={"https://i.picsum.photos/id/193/700/500.jpg?hmac=q5QJ9ieureq_dXwwsUmh7ub2pN-V1arRrqpMV7czc9g"}
                     />
                 </View>
@@ -71,23 +71,24 @@ const MatchNews = ({ navigation }) => {
                 <View style={[styles.VideoBody, {}]}>
                     {/* VIDEO TITLE */}
                     <VideoTitle
-                        subTitle={moment().format('dddd, ')+moment().format('D MMM - hh:mm a')}
+                        subTitle={moment().format('dddd, ') + moment().format('D MMM - hh:mm a')}
                         subTitle2={`Seria A - Gameweek 12`}
                         title={`Real Madrid Are Still Confident In Signing Mbappe This Summer`} />
                     {/* VIDEO TITLE */}
-
-                    <View style={[styles.videoTabs, {marginVertical:RFPercentage(1)}]}>
-                        <TouchableOpacity style={styles.videoIcons}>
-                            <Fontisto
-                                name='bell'
-                                size={RFPercentage(2.8)}
-                                color={SCColors.white}
-                            />
-                        </TouchableOpacity>
-                        <TouchableOpacity style={[styles.addMargin, styles.videoIcons]}>
-                            <MaterialIcons name={`logout`} size={RFPercentage(3)} style={styles.uploadIcon} color={SCColors.white} />
-                        </TouchableOpacity>
-                    </View>
+                    {isLive == false &&
+                        <View style={[styles.videoTabs, { marginVertical: RFPercentage(1) }]}>
+                            <TouchableOpacity style={styles.videoIcons}>
+                                <Fontisto
+                                    name='bell'
+                                    size={RFPercentage(2.8)}
+                                    color={SCColors.white}
+                                />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={[styles.addMargin, styles.videoIcons]}>
+                                <MaterialIcons name={`logout`} size={RFPercentage(3)} style={styles.uploadIcon} color={SCColors.white} />
+                            </TouchableOpacity>
+                        </View>
+                    }
 
                     {/* VIDEO TABS */}
                     <View style={styles.videoTabs}>
@@ -112,9 +113,11 @@ const MatchNews = ({ navigation }) => {
                     </View>
                 </View>
             </ScrollView>
-            <View style={[styles.footerContainer, { justifyContent: 'center' }]}>
-                <FooterButtons title={`Buy Streaming Access`} />
-            </View>
+            {isLive == false &&
+                <View style={[styles.footerContainer, { justifyContent: 'center' }]}>
+                    <FooterButtons title={`Buy Streaming Access`} />
+                </View>
+            }
         </View >
     </>
     );
