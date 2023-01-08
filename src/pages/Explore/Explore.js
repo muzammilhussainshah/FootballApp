@@ -13,15 +13,16 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 // @components
 import Header from '../../components/Header';
 import SCColors from '../../styles/SCColors';
-import CustomCarousel from '../../components/CustomCarousel';
-import TitleBar from '../../components/TitleBar';
-import TrendingNewsCard from '../../components/TrendingNewsCard';
-import { DUMMYBANNERS } from '../Home/Home'
 import { styles } from './styles';
 import {
-  NEWSDATA,
   EXPLORECATEGORY
 } from './DummyData';
+import {
+  All,
+  NewsUpdate,
+  Preview,
+  Standing
+} from './Components/Component';
 
 const Explore = ({ navigation }) => {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -55,6 +56,7 @@ const Explore = ({ navigation }) => {
       </View>
       {/* CATEGORY BUTTONS */}
 
+      {/* SELECTED COMPONENT */}
       <View style={[styles.container,]}>
         <ScrollView >
           {activeCategory == 'All' ?
@@ -66,116 +68,15 @@ const Explore = ({ navigation }) => {
               (activeCategory == 'News Update') ?
                 <NewsUpdate navigation={navigation} />
 
-                : <></>}
+                :
+                (activeCategory == 'Standings') ?
+                  <Standing />
+
+                  : <></>}
+          {/* SELECTED COMPONENT */}
         </ScrollView>
       </View >
     </>
   );
 };
-const NewsUpdate = () => {
-  return (
-    <>
-      {/* BANNERS */}
-      < View style={styles.bannerContainer}>
-        <MatchPreviewCarousel
-          footer={true}
-          footerText={`Player, Manager & Goal of the Month Premier League Awards?`} />
-      </View>
-      {/* BANNERS */}
-      {/* TRENDING NEWS */}
-      <TitleBar title={`Trending News`} seeAllEnable={true} />
-      <FlatList
-        data={NEWSDATA}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ padding: RFPercentage(2) }}
-        renderItem={(props) => <TrendingNewsCard
-          navigateTo={() => navigation.navigate('TrendingNews')}
-          newDatalength={NEWSDATA.length}
-          item={props} />}
-        keyExtractor={item => item.id}
-      />
-      {/* TRENDING NEWS */}
-    </>
-  )
-}
-const All = ({ navigation }) => {
-  return (
-    <>
-      {/* BANNERS */}
-      < View style={styles.bannerContainer}>
-        <MatchPreviewCarousel
-          footer={true}
-          footerText={`Player, Manager & Goal of the Month Premier League Awards?`} />
-      </View>
-      {/* BANNERS */}
-
-      {/* MATCH HIGHLIGHT */}
-      <TitleBar title={`Match Highlight`} seeAllEnable={true} />
-
-      <View style={{ height: RFPercentage(26) }}>
-        <MatchPreviewCarousel
-          navigateTo={() => navigation?.navigate('VideoScreen')} />
-      </View>
-      {/* MATCH HIGHLIGHT */}
-
-      {/* TRENDING NEWS */}
-      <TitleBar title={`Trending News`} seeAllEnable={true} />
-      <FlatList
-        data={NEWSDATA}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ padding: RFPercentage(2) }}
-        renderItem={(props) => <TrendingNewsCard
-          navigateTo={() => navigation.navigate('TrendingNews')}
-          newDatalength={NEWSDATA.length}
-          item={props} />}
-        keyExtractor={item => item.id}
-      />
-      {/* TRENDING NEWS */}
-    </>
-  )
-}
-const Preview = () => {
-  return (<>
-    {/* MATCH HIGHLIGHT */}
-    < TitleBar title={`UEFA Champions League`} seeAllEnable={true} />
-
-    <View style={{ height: RFPercentage(26) }}>
-      <MatchPreviewCarousel
-        navigateTo={() => navigation?.navigate('VideoScreen')} />
-    </View>
-    {/* MATCH HIGHLIGHT                  : */}
-    {/* MATCH HIGHLIGHT */}
-    < TitleBar title={`Premier League`} seeAllEnable={true} />
-
-    <View style={{ height: RFPercentage(26) }}>
-      <MatchPreviewCarousel
-        navigateTo={() => navigation?.navigate('VideoScreen')} />
-    </View>
-    {/* MATCH HIGHLIGHT                  : */}
-    {/* MATCH HIGHLIGHT */}
-    < TitleBar title={`Seria A`} seeAllEnable={true} />
-
-    <View style={{ height: RFPercentage(26) }}>
-      <MatchPreviewCarousel
-        navigateTo={() => navigation?.navigate('VideoScreen')} />
-    </View>
-    {/* MATCH HIGHLIGHT                  : */}
-  </>)
-}
-const MatchPreviewCarousel = ({ footer, footerText, navigateTo }) => {
-  return (
-    <FlatList
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{ paddingHorizontal: RFPercentage(2), }}
-      data={DUMMYBANNERS}
-      renderItem={(item) => (
-        <CustomCarousel
-          navigateTo={() => navigateTo && navigateTo()}
-          footer={footer == true ? true : false}
-          footerText={footerText} item={item} />)}
-      keyExtractor={item => item.id}
-    />
-  )
-}
 export default Explore;

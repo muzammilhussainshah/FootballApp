@@ -11,7 +11,9 @@ const SCColors = {
     tabActive: "#e7e7e7",
     lightGray: '#3d3d3d',
     red: "red",
-    skyBlue:'#00a3b7',
+    lightGreen: '#03a600',
+    green: '#137511',
+    skyBlue: '#00a3b7',
 }
 
 export default SCColors
