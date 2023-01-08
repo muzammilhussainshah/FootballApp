@@ -16,6 +16,7 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 
 import SCColors from '../../../styles/SCColors';
 import { styles } from '../styles';
+import moment from 'moment';
 
 // THUMBNAIL HEADER
 export const ThumbnailHeader = ({ navigation, backButton, type }) => {
@@ -104,6 +105,19 @@ export const PlayButton = () => {
 }
 // VIDEO PLAY BUTTON
 
+// VIDEO WILL Start IN BUTTON
+export const WillStartIn = ({ willStartIn }) => {
+    return (
+        <TouchableOpacity
+            style={[styles.playBtn, styles.WillStartInContainer]}
+            activeOpacity={0.8}  >
+            <Text style={styles.footerBtnText}>{`This match will start in:`}</Text>
+            <Text style={styles.WillStartIn}>{moment(willStartIn).format('hh:mm:ss')}</Text>
+        </TouchableOpacity>
+    )
+}
+// VIDEO WILL Start IN BUTTON
+
 // THUMBNAIL PHOTO
 export const Thumbnail = ({ photoURL }) => <Image source={{ uri: photoURL }} style={styles.thumbnailImage} />
 // THUMBNAIL PHOTO
@@ -129,12 +143,15 @@ export const GoalScorerContainer = ({ position }) => {
         </View>
     )
 }
-export const VIDEOSECTION = ({ navigation, photoURL, backButton, type }) => {
+export const VIDEOSECTION = ({ navigation, photoURL, backButton, type, willStartIn }) => {
     return (
         <View style={styles.VideoContainer}>
             {/* <> */}
             <Thumbnail photoURL={photoURL} />
             <ThumbnailHeader backButton={backButton} type={type} navigation={navigation} />
+            {willStartIn &&
+                <WillStartIn willStartIn={willStartIn} />
+            }
             {type !== 'image' &&
                 <>
                     <PlayButton />

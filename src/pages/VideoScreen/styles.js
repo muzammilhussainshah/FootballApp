@@ -75,6 +75,11 @@ export const styles = StyleSheet.create({
         fontSize: RFPercentage(4.5),
         fontWeight: '600'
     },
+    WillStartIn: {
+        color: SCColors.white,
+        fontSize: RFPercentage(3.5),
+        fontWeight: '600'
+    },
     goalScorerContainer: (position) => ({
         height: RFPercentage(5), backgroundColor: SCColors.ScoreCart,
         borderTopLeftRadius: position == 'top' ? RFPercentage(2) : 0,
@@ -169,4 +174,8 @@ export const styles = StyleSheet.create({
         backgroundColor: 'blue',
         marginBottom: RFPercentage(2)
     },
+    videoIcons: { height: RFPercentage(5), width: RFPercentage(5), justifyContent: 'center', alignItems: "center", backgroundColor: SCColors.ScoreCart, borderRadius: RFPercentage(5) },
+    footerBtnContainer: { height: '70%', width: '80%', borderRadius: RFPercentage(5), backgroundColor: SCColors.skyBlue, justifyContent: 'center', alignItems: 'center' },
+    footerBtnText: { color: SCColors.white, fontSize: RFPercentage(2) },
+WillStartInContainer: { height: RFPercentage(12), justifyContent: "center", alignItems: 'center', borderRadius: RFPercentage(2), width: RFPercentage(25), backgroundColor: SCColors.tabInactive },
 });

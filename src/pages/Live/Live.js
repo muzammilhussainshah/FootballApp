@@ -21,7 +21,7 @@ import {
   MATCHSTATUS
 } from './DummyData';
 
-const Live = () => {
+const Live = ({ navigation }) => {
   // STATE
   const [activeCategory, setActiveCategory] = useState('Today, 12 Sep')
   // STATE
@@ -89,6 +89,7 @@ const Live = () => {
               <>
                 <TrendingNewsCard
                   matchStatus
+                  navigateTo={() => navigation.navigate('MatchNews', { isLive: props?.item?.isLive == true ? true : false })}
                   newDatalength={MATCHSTATUS.length} item={props} />
               </>)}
             keyExtractor={item => item.id}

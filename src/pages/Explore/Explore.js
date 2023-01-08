@@ -70,7 +70,6 @@ const Explore = ({ navigation }) => {
 
           <View style={{ height: RFPercentage(26) }}>
             <MatchPreviewCarousel navigateTo={() => navigation?.navigate('VideoScreen')} />
-            {/* <MatchPreviewCarousel /> */}
           </View>
           {/* MATCH HIGHLIGHT */}
 
