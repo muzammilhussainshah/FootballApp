@@ -1,15 +1,15 @@
 import ActionTypes from '../constant/constant';
 
 const INITIAL_STATE = {
-    Demo: [], 
+    nowTv: [], 
 }
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) { 
-        case ActionTypes.DEMO:
+        case ActionTypes.NOWTV:
             return ({
                 ...state,
-                Demo: action.payload
+                nowTv: action.payload
             }) 
         default:
             return state;

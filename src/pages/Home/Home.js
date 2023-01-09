@@ -1,10 +1,11 @@
 // @app
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   Dimensions,
   FlatList,
   Image,
   ScrollView,
+  Text,
   View
 } from 'react-native';
 
@@ -18,6 +19,10 @@ import Header from '../../components/Header';
 import ScoreCard from '../../components/ScoreCard';
 import CustomCarousel from '../../components/CustomCarousel';
 import { styles } from './styles'
+import { useDispatch, useSelector } from 'react-redux';
+import { NowTV } from '../../store/action/action';
+import SCColors from '../../styles/SCColors';
+import moment from 'moment';
 
 const windowWidth = Dimensions.get('window').width;
 const flexW1 = windowWidth / 10
@@ -31,7 +36,15 @@ export const DUMMYBANNERS = [
 
 const Home = ({ navigation }) => {
   const carouselRef = useRef(null);
+  const dispatch = useDispatch()
+  const nowTv = useSelector((state) => state.root.nowTv);
+  // console.log(nowTv, 'nowTvnowTvnowTv')
+  useEffect(() => {
+    dispatch(NowTV())
 
+
+  }, [])
+  const img = (src) => <Image source={src} style={{ height: "100%", width: "100%" }} />
   return (
     <>
       <Header />
@@ -47,8 +60,63 @@ const Home = ({ navigation }) => {
               useNativeDriver
               autoplay={true}
               autoplayInterval={5000}
-              data={DUMMYBANNERS}
-              renderItem={({ item }) => <Image source={{ uri: item }} style={styles.crousalBaner} />}
+              data={nowTv}
+              renderItem={({ item, index }) => {
+                const { teams } = item
+                console.log(item, 'itemitemitemitem', index)
+                return (
+                  // <></>
+                  <View style={[styles.crousalBaner, { flexDirection: 'row', overflow: 'hidden', justifyContent: "center" }]}>
+                    <View style={{ flex: 1 }}>
+                      {
+                        index % 2 == 1 ?
+                          img(require('../../assets/bannerImg2.jpeg'))
+                          :
+
+                          index % 2 == 0 ?
+                            img(require('../../assets/bannerImg.jpeg'))
+                            :
+                            img(require('../../assets/bannerImg3.jpeg'))
+                      }
+                      <Text style={styles.homeName('50%', 'flex-end', SCColors.gradientRight)}>
+                        {item?.teams?.home?.name}
+                      </Text>
+                    </View>
+                    <View style={{ flex: 1 }}>
+                      {
+                        index % 2 == 1 ?
+                          img(require('../../assets/bannerImg.jpeg'))
+                          :
+
+                          index % 2 == 0 ?
+                            img(require('../../assets/bannerImg2.jpeg'))
+                            :
+                            img(require('../../assets/bannerImg3.jpeg'))
+                      }
+                      <Text style={[styles.homeName('60%', 'flex-start', SCColors.green),]}>
+                        {item?.teams?.away?.name}
+                      </Text>
+                    </View>
+                    <Text style={[
+                      styles.homeName('85%', 'center', SCColors.white),
+                      {
+                        // paddingHorizontal: RFPercentage(0),
+                        paddingVertical: RFPercentage(0),
+                        fontSize: RFPercentage(2),
+                        fontStyle: 'italic',
+
+                      }
+                      // { position: "absolute", bottom: RFPercentage(2), backgroundColor: SCColors.white }
+                    ]}>
+                      {moment(item?.fixture?.date).format('ddd, D MMM -HH:MM A ')}
+                      {/* {item?.fixture?.date} */}
+                    </Text>
+
+                    {/* <Image source={{ uri: item?.teams?.home?.logo }} style={{ height: "100%", width: "100%" }} /> */}
+
+                  </View>
+                )
+              }}
               sliderWidth={windowWidth}
               itemWidth={flexW1 * 8}
             />
@@ -126,7 +194,7 @@ const Home = ({ navigation }) => {
           {/* MATCH PREVIEW */}
 
         </ScrollView>
-      </View>
+      </View >
     </>
   );
 };

@@ -1,5 +1,5 @@
 const ActionTypes = {
-    DEMO: 'DEMO', 
+     NOWTV: 'NOWTV', 
 }
 
 export default ActionTypes;
