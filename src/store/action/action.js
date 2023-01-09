@@ -30,7 +30,6 @@ export const NowTV = () => {
             };
             var resp = await axios(option);
             if (resp.status == 200) {
-                // console.log(resp?.data?.response.splice(0, 5), 'resp?.data?.response.splice(0, 5)    ')
                 dispatch({ type: ActionTypes.NOWTV, payload: resp?.data?.response.splice(0, 5) });
             } else {
                 alert('some thing went wrong')

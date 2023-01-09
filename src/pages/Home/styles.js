@@ -1,12 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import SCColors from '../../styles/SCColors';
-// const generateColor = () => {
-//   const randomColor = Math.floor(Math.random() * 16777215)
-//     .toString(16)
-//     .padStart(6, '0');
-//   return `#${randomColor}`;
-// };
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -23,6 +18,11 @@ export const styles = StyleSheet.create({
     marginVertical: RFPercentage(2.5),
     alignItems: 'flex-start',
     justifyContent: 'flex-start'
+  },
+  crousalBaner2: {
+    flexDirection: 'row',
+    overflow: 'hidden',
+    justifyContent: "center"
   },
   crousalBaner: {
     height: RFPercentage(28),
@@ -42,6 +42,11 @@ export const styles = StyleSheet.create({
     top: top,
     alignSelf: position,
     backgroundColor: color,
-    // borderRadius: RFPercentage(1)
-  })
+  }),
+  matchDate: {
+    paddingVertical: RFPercentage(0),
+    fontSize: RFPercentage(2),
+    fontStyle: 'italic',
+  }
+
 });

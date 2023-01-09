@@ -62,17 +62,13 @@ const Home = ({ navigation }) => {
               autoplayInterval={5000}
               data={nowTv}
               renderItem={({ item, index }) => {
-                const { teams } = item
-                console.log(item, 'itemitemitemitem', index)
                 return (
-                  // <></>
-                  <View style={[styles.crousalBaner, { flexDirection: 'row', overflow: 'hidden', justifyContent: "center" }]}>
+                  <View style={[styles.crousalBaner, styles.crousalBaner2]}>
                     <View style={{ flex: 1 }}>
                       {
                         index % 2 == 1 ?
                           img(require('../../assets/bannerImg2.jpeg'))
                           :
-
                           index % 2 == 0 ?
                             img(require('../../assets/bannerImg.jpeg'))
                             :
@@ -87,7 +83,6 @@ const Home = ({ navigation }) => {
                         index % 2 == 1 ?
                           img(require('../../assets/bannerImg.jpeg'))
                           :
-
                           index % 2 == 0 ?
                             img(require('../../assets/bannerImg2.jpeg'))
                             :
@@ -99,21 +94,10 @@ const Home = ({ navigation }) => {
                     </View>
                     <Text style={[
                       styles.homeName('85%', 'center', SCColors.white),
-                      {
-                        // paddingHorizontal: RFPercentage(0),
-                        paddingVertical: RFPercentage(0),
-                        fontSize: RFPercentage(2),
-                        fontStyle: 'italic',
-
-                      }
-                      // { position: "absolute", bottom: RFPercentage(2), backgroundColor: SCColors.white }
+                      styles.matchDate
                     ]}>
                       {moment(item?.fixture?.date).format('ddd, D MMM -HH:MM A ')}
-                      {/* {item?.fixture?.date} */}
                     </Text>
-
-                    {/* <Image source={{ uri: item?.teams?.home?.logo }} style={{ height: "100%", width: "100%" }} /> */}
-
                   </View>
                 )
               }}
